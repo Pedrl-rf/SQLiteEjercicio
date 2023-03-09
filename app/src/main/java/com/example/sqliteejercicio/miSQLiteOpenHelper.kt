@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.os.FileObserver.DELETE
 import java.sql.Types.INTEGER
 
 class miOpenHelper (context: Context) :SQLiteOpenHelper (context,"contactos.db", null, 1) {
@@ -29,8 +30,34 @@ class miOpenHelper (context: Context) :SQLiteOpenHelper (context,"contactos.db",
         val datos = ContentValues()
         datos.put("nombre", nombre)
         datos.put("nombre2", tlf)
+
         val db = this.writableDatabase // Pedimos un acceso a la base de datos en modo escritura
         db.insert("tabla_contactos", null, datos)
         db.close() // cerramos el acceso a la base de datos
     }
+
+    fun borrarDato (id : Int) : Int{
+        val arg  = arrayOf(id.toString())
+        val db = this.writableDatabase
+
+        val borrados = db.delete("tabla_contactos","ID = ?",arg)
+        db.close()
+
+        return borrados
+
+
+    }
+
+    fun updateDato (id:Int, nombre: String, tlf:String) {
+        val arg  = arrayOf(id.toString())
+        val datos = ContentValues()
+
+        datos.put("nombre", nombre)
+        datos.put("nombre2", tlf)
+
+        val db = this.writableDatabase // Pedimos un acceso a la base de datos en modo escritura
+        db.update("tabla_contactos", datos,"_id = ?",arg)
+        db.close() // cerramos el acceso a la base de datos
+    }
+
 }

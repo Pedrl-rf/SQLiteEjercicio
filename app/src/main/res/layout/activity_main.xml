@@ -9,6 +9,14 @@
     tools:context=".MainActivity">
 
     <EditText
+        android:id="@+id/et_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Id"
+        android:inputType="textPersonName" />
+
+    <EditText
         android:id="@+id/et_nombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,10 +39,28 @@
         android:text="añadir" />
 
     <Button
+        android:id="@+id/bt_modificar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="modificar" />
+
+    <Button
+        android:id="@+id/bt_borrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="borrar" />
+
+    <Button
         android:id="@+id/bt_verBBDD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="bbdd" />
+        android:text="consultar" />
+
+    <Button
+        android:id="@+id/bt_verllv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LISTVIEW" />
 
     <TextView
         android:id="@+id/tv_consultaMain"
