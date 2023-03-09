@@ -9,7 +9,7 @@ import com.example.sqliteejercicio.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
-    lateinit var contactosHelper: miOpenHelper
+    lateinit var contactosHelper: miSQLiteOpenHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        contactosHelper = miOpenHelper(this)
+        contactosHelper = miSQLiteOpenHelper(this)
 
         binding.btGuardar.setOnClickListener{
             if (binding.etNombre.text.isNotBlank() && binding.etNombre2.text.isNotBlank()){
@@ -59,17 +59,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btBorrar.setOnClickListener{
-            var cantidad = 0
 
-            if (binding.etNombre.text.isNotBlank() &&
-                binding.etNombre2.text.isNotBlank() &&
-                binding.etId.text.isNotBlank()){
 
-                cantidad = contactosHelper.borrarDato(binding.etId.toString().toInt())
 
+            if (binding.etId.text.isNotBlank()){
+
+                contactosHelper.borrarDato(binding.etId.text.toString().toInt())
                 binding.etId.text.clear()
 
-                Toast.makeText(this,"Borrado con la id : ${cantidad}",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Borrado con la id : ${contactosHelper.borrarDato(binding.etId.text.toString().toInt())}",Toast.LENGTH_SHORT).show()
 
             }else{
                 Toast.makeText(this,"No se ha podido borrar" ,Toast.LENGTH_SHORT).show()

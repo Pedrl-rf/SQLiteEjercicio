@@ -7,9 +7,9 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.os.FileObserver.DELETE
 import java.sql.Types.INTEGER
 
-class miOpenHelper (context: Context) :SQLiteOpenHelper (context,"contactos.db", null, 1) {
+class miSQLiteOpenHelper (context: Context) :SQLiteOpenHelper (context,"contactos.db", null, 1) {
     override fun onCreate(db: SQLiteDatabase?) {
-        db?.execSQL("CREATE TABLE tabla_contactos (_ID INTEGER PRIMARY KEY , nombre TEXT, nombre2 TEXT)")
+        db?.execSQL("CREATE TABLE tabla_contactos (_id INTEGER PRIMARY KEY , nombre TEXT, nombre2 TEXT)")
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -36,16 +36,13 @@ class miOpenHelper (context: Context) :SQLiteOpenHelper (context,"contactos.db",
         db.close() // cerramos el acceso a la base de datos
     }
 
-    fun borrarDato (id : Int) : Int{
+    fun borrarDato (id : Int){
         val arg  = arrayOf(id.toString())
         val db = this.writableDatabase
 
-        val borrados = db.delete("tabla_contactos","ID = ?",arg)
+        //val borrados = db.delete("tabla_contactos","ID = ?",arg)
+        db.execSQL("DELETE FROM tabla_contactos WHERE _id = ?",arg)
         db.close()
-
-        return borrados
-
-
     }
 
     fun updateDato (id:Int, nombre: String, tlf:String) {
