@@ -60,14 +60,15 @@ class MainActivity : AppCompatActivity() {
 
         binding.btBorrar.setOnClickListener{
 
-
+            var numeroBorrado : String
 
             if (binding.etId.text.isNotBlank()){
+                numeroBorrado = binding.etId.text.toString()
 
                 contactosHelper.borrarDato(binding.etId.text.toString().toInt())
                 binding.etId.text.clear()
 
-                Toast.makeText(this,"Borrado con la id : ${contactosHelper.borrarDato(binding.etId.text.toString().toInt())}",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Borrado con la id : ${numeroBorrado}}",Toast.LENGTH_SHORT).show()
 
             }else{
                 Toast.makeText(this,"No se ha podido borrar" ,Toast.LENGTH_SHORT).show()
