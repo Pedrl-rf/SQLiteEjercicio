@@ -1,8 +1,10 @@
 package com.example.sqliteejercicio
 
+import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.widget.Toast
 import com.example.sqliteejercicio.databinding.ActivityMainBinding
 
@@ -16,8 +18,14 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         contactosHelper = miSQLiteOpenHelper(this)
+
+        val bundle = intent.extras
+        val dato = bundle?.getString("nombre")
+        val dato2 = bundle?.getString("nombre2")
+        binding.etNombre.setText(dato)
+        binding.etNombre2.setText(dato2)
+
 
         binding.btGuardar.setOnClickListener{
             if (binding.etNombre.text.isNotBlank() && binding.etNombre2.text.isNotBlank()){
@@ -94,6 +102,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    binding.btVerllv.setOnClickListener{
+        val intentListView = Intent(this, ActivityList::class.java)
+        startActivity(intentListView)
+    }
+
 
     }
+
+
 }

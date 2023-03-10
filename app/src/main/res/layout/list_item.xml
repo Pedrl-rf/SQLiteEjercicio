@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/tv_nombreListView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -25,15 +25,17 @@
             android:fontFamily="sans-serif-black"
             android:text="TextView"
             android:textColor="#673AB7"
+            android:textSize="45dp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/tv_telefonoListView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/esquinasredondeadas"
             android:text="TextView"
-            android:textColor="#2196F3" />
+            android:textColor="#2196F3"
+            android:textSize="45dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
