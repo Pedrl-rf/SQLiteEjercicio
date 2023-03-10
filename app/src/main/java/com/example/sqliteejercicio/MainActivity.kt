@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
             binding.etNombre2.setText("")
         }
 
-        binding.btVerBBDD.setOnClickListener{
+        /*binding.btVerBBDD.setOnClickListener{
 
             binding.tvConsultaMain.text = ""
             val db : SQLiteDatabase = contactosHelper.readableDatabase
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
             }
             binding.etNombre.setText("")
             binding.etNombre2.setText("")
-        }
+        }*/
 
         binding.btBorrar.setOnClickListener{
 

@@ -51,22 +51,15 @@
         android:text="borrar" />
 
     <Button
-        android:id="@+id/bt_verBBDD"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="consultar" />
-
-    <Button
         android:id="@+id/bt_verllv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="LISTVIEW" />
+        android:text="VER LISTA" />
 
     <TextView
         android:id="@+id/tv_consultaMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="resultados"
         android:textSize="25dp" />
 
 </LinearLayout>
