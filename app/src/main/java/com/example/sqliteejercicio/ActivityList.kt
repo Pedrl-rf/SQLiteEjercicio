@@ -66,7 +66,7 @@ class ActivityList : AppCompatActivity(){
                     Toast.makeText(applicationContext,
                         android.R.string.yes, Toast.LENGTH_SHORT).show()
                     intent.putExtra("nombre",bindingItems.tvNombreListView.text)
-                    intent.putExtra("nombre2",bindingItems.tvNombreListView.text)
+                    intent.putExtra("nombre2",bindingItems.tvTelefonoListView.text)
                     startActivity(intent)
                 }
 
