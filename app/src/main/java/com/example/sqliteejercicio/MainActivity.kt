@@ -27,7 +27,11 @@ class MainActivity : AppCompatActivity() {
         binding.etNombre2.setText(dato2)
 
 
+
+
         binding.btGuardar.setOnClickListener{
+            binding.etNombre.setText("")
+            binding.etNombre2.setText("")
             if (binding.etNombre.text.isNotBlank() && binding.etNombre2.text.isNotBlank()){
 
                 contactosHelper.insertDato(binding.etNombre.text.toString(), binding.etNombre2.text.toString())
@@ -43,6 +47,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btVerBBDD.setOnClickListener{
+            binding.etNombre.setText("")
+            binding.etNombre2.setText("")
             binding.tvConsultaMain.text = ""
             val db : SQLiteDatabase = contactosHelper.readableDatabase
 
@@ -67,6 +73,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btBorrar.setOnClickListener{
+            binding.etNombre.setText("")
+            binding.etNombre2.setText("")
 
             var numeroBorrado : String
 
@@ -84,6 +92,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btModificar.setOnClickListener{
+            binding.etNombre.setText("")
+            binding.etNombre2.setText("")
             if (binding.etNombre.text.isNotBlank() &&
                 binding.etNombre2.text.isNotBlank() &&
                 binding.etId.text.isNotBlank()){
@@ -102,9 +112,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-    binding.btVerllv.setOnClickListener{
-        val intentListView = Intent(this, ActivityList::class.java)
-        startActivity(intentListView)
+        binding.btVerllv.setOnClickListener{
+            binding.etNombre.setText("")
+            binding.etNombre2.setText("")
+            val intentListView = Intent(this, ActivityList::class.java)
+            startActivity(intentListView)
     }
 
 
