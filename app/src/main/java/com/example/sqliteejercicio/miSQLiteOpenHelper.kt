@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.os.FileObserver.DELETE
 import java.sql.Types.INTEGER
 
-class miSQLiteOpenHelper (context: Context) :SQLiteOpenHelper (context,"baseDeDatos.db", null, 1) {
+class miSQLiteOpenHelper (context: Context) :SQLiteOpenHelper (context,"baseDeDatosContactos.db", null, 1) {
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL("CREATE TABLE tabla_contactos (_id INTEGER PRIMARY KEY , nombre TEXT, nombre2 TEXT)")
     }

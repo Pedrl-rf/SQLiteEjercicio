@@ -47,6 +47,7 @@ class ActivityList : AppCompatActivity(){
         override fun bindView(view: View?, context: Context?,
                               cursor: Cursor?) {
             var bindingItems = ListItemBinding.bind(view!!)
+            var id = cursor!!.getString(0)
             bindingItems.tvNombreListView.text = cursor!!.getString(1)
             bindingItems.tvTelefonoListView.text = cursor!!.getString(2)
 
@@ -67,6 +68,7 @@ class ActivityList : AppCompatActivity(){
                         android.R.string.yes, Toast.LENGTH_SHORT).show()
                     intent.putExtra("nombre",bindingItems.tvNombreListView.text)
                     intent.putExtra("nombre2",bindingItems.tvTelefonoListView.text)
+                    intent.putExtra("id",id)
                     startActivity(intent)
                 }
 

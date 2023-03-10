@@ -23,15 +23,15 @@ class MainActivity : AppCompatActivity() {
         val bundle = intent.extras
         val dato = bundle?.getString("nombre")
         val dato2 = bundle?.getString("nombre2")
+        val idRecibido = bundle?.getString("id")
         binding.etNombre.setText(dato)
         binding.etNombre2.setText(dato2)
+        binding.etId.setText(idRecibido)
 
 
 
 
         binding.btGuardar.setOnClickListener{
-            binding.etNombre.setText("")
-            binding.etNombre2.setText("")
             if (binding.etNombre.text.isNotBlank() && binding.etNombre2.text.isNotBlank()){
 
                 contactosHelper.insertDato(binding.etNombre.text.toString(), binding.etNombre2.text.toString())
@@ -44,11 +44,12 @@ class MainActivity : AppCompatActivity() {
             }else{
                 Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show()
             }
+            binding.etNombre.setText("")
+            binding.etNombre2.setText("")
         }
 
         binding.btVerBBDD.setOnClickListener{
-            binding.etNombre.setText("")
-            binding.etNombre2.setText("")
+
             binding.tvConsultaMain.text = ""
             val db : SQLiteDatabase = contactosHelper.readableDatabase
 
@@ -70,11 +71,11 @@ class MainActivity : AppCompatActivity() {
 
                 }while (cursor.moveToNext())
             }
+            binding.etNombre.setText("")
+            binding.etNombre2.setText("")
         }
 
         binding.btBorrar.setOnClickListener{
-            binding.etNombre.setText("")
-            binding.etNombre2.setText("")
 
             var numeroBorrado : String
 
@@ -89,11 +90,12 @@ class MainActivity : AppCompatActivity() {
             }else{
                 Toast.makeText(this,"No se ha podido borrar" ,Toast.LENGTH_SHORT).show()
             }
+
+            binding.etNombre.setText("")
+            binding.etNombre2.setText("")
         }
 
         binding.btModificar.setOnClickListener{
-            binding.etNombre.setText("")
-            binding.etNombre2.setText("")
             if (binding.etNombre.text.isNotBlank() &&
                 binding.etNombre2.text.isNotBlank() &&
                 binding.etId.text.isNotBlank()){
@@ -110,6 +112,9 @@ class MainActivity : AppCompatActivity() {
             }else{
                 Toast.makeText(this,"Erorr al ser modificado",Toast.LENGTH_SHORT).show()
             }
+
+            binding.etNombre.setText("")
+            binding.etNombre2.setText("")
         }
 
         binding.btVerllv.setOnClickListener{
